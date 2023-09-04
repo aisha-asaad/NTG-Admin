@@ -7,9 +7,12 @@ import { ProductsModule } from './products/products.module';
 import { HttpClientModule } from '@angular/common/http';
 import {  RouterModule } from '@angular/router';
 import { CartsModule } from './carts/carts.module';
+import {MatDialogModule} from '@angular/material/dialog'; 
+import {MatButtonModule} from '@angular/material/button';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 @NgModule({
   declarations: [
-    AppComponent
+    AppComponent,
   ],
   imports: [
     BrowserModule,
@@ -17,6 +20,8 @@ import { CartsModule } from './carts/carts.module';
     SharedModule,
     ProductsModule,
     CartsModule,
+    MatDialogModule, 
+    MatButtonModule, BrowserAnimationsModule, HttpClientModule, RouterModule
   ],
   providers: [],
   bootstrap: [AppComponent]

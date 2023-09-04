@@ -7,11 +7,14 @@ import { ProductsService } from 'src/app/products/services/products.service';
 @Component({
   selector: 'app-cart',
   templateUrl: './cart.component.html',
-  styleUrls: ['./cart.component.css']
+  styleUrls: ['./cart.component.css'],
+  
+  
 })
 export class CartComponent implements OnInit {
     constructor (private service:CartsService, private build:FormBuilder, private productService: ProductsService) {
     }
+    title: string | null = null;
     carts: any[] = [];
     products: any[] = [];
     total = 0
@@ -25,21 +28,21 @@ export class CartComponent implements OnInit {
     this.getAllCarts()
     }
   getAllCarts(){
-    this.service.getAllCarts().subscribe(  (res:any) =>{
+    this.service.getAllCarts().subscribe((res:any) =>{
       this.carts= res
     }) 
     
   }
 
   applyFilter() {
-  let date= this. form.value
+  let date= this.form.value
   this.service.getAllCarts (date).subscribe((res:any) => {
   this.carts = res
   })
   }
   deleteCart (id: number) {
-  this.service.deleteCart (id).subscribe ((res:any) => {
-  this.getAllCarts ()
+  this.service.deleteCart(id).subscribe ((res:any) => {
+  this.getAllCarts()
   alert("cart deleted Success")
   })
 }
@@ -52,4 +55,5 @@ export class CartComponent implements OnInit {
   })
   console.log(this.details)
   }}
+
 }

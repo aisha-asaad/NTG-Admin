@@ -46,3 +46,7 @@
     .btn-danger{
         margin: 1rem;
     }
+      .modal .fade{
+        z-index: 1;
+      }
+      

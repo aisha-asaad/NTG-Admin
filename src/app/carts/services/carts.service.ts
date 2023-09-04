@@ -8,13 +8,14 @@ export class CartsService {
 
   constructor(private http:HttpClient) { }
 
-getAllCarts(params?:any) {
-/* let params = new HttpParams()
-params = params.append("startDate", param?.start).append("endDate", param?.end) */
-return this.http.get('https://fakestoreapi.com/carts')
+getAllCarts(param?:any) {
+  let params = new HttpParams()
+params = params.append("startDate", param?.start).append("endDate", param?.end)  
+return this.http.get('https://fakestoreapi.com/carts',{params})
 }
 deleteCart(id: number) {
- return this.http.delete('https://fakestoreapi.com/carts/'+ id)
+return this.http.delete('https://fakestoreapi.com/carts/'+ id)
 }
+
 }
 
