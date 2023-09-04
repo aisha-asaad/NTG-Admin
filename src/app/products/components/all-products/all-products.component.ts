@@ -15,20 +15,23 @@ export class AllProductsComponent implements OnInit {
   base64: any ='';
   form! : FormGroup;
   addButton: boolean = false;
+  fileName=''
   constructor(private service:ProductsService, private build: FormBuilder) {}
   ngOnInit(): void {
     this.form =this.build.group({
       title:['',[Validators.required]],      
       price:['',[Validators.required]],
       description:['',[Validators.required]],
-      image:['',[Validators.required]],
+      image:[this.fileName,[Validators.required]],
       category:['',[Validators.required]],
 
     })
     this.getProducts()
     this.getCategories()  }
   
-    
+    clearForm(){
+      this.form.reset()
+    }
     getProducts() {
   this.service.getAllProducts().subscribe((res:any) => {
   this.products = res

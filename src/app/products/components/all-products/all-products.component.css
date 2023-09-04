@@ -2,10 +2,7 @@ img{
     width: 200px;
     height: 200px;
 }
-.modal{
-    z-index: 1;
 
-}
 textarea{
     max-width: 100%;
     min-width:  100%;
